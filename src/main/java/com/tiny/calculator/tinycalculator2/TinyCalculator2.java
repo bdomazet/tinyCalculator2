@@ -5,26 +5,34 @@
  */
 package com.tiny.calculator.tinycalculator2;
 
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author borisdom
  */
 @Named(value = "tinyCalculator2")
-@RequestScoped
-public class TinyCalculator2 {
+@SessionScoped
+public class TinyCalculator2 implements Serializable{
 
     /**
      * Creates a new instance of TinyCalculator2
      */
     public TinyCalculator2() {
+       LOGGER.log(Level.INFO, "ctor TinyCalculator2");
     }
     
     private double _param1;
     private double _param2;
     private double _result;
+    
+    private static final Logger LOGGER = Logger.getLogger("TinyCalculator2");
+    
+    
 
     public double getParam1() {
         return _param1;
